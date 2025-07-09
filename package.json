@@ -1,0 +1,28 @@
+{
+  "name": "vue-portfolio-crud",
+  "version": "1.0.0",
+  "description": "Vue 3 + TypeScript portfolio with Node.js backend and MongoDB CRUD",
+  "private": true,
+  "workspaces": [
+    "packages/ui",
+    "packages/backend"
+  ],
+  "scripts": {
+    "dev": "concurrently \"npm run dev:backend\" \"npm run dev:ui\"",
+    "dev:ui": "npm run dev --workspace=packages/ui",
+    "dev:backend": "npm run dev --workspace=packages/backend",
+    "build": "npm run build --workspaces",
+    "build:ui": "npm run build --workspace=packages/ui",
+    "build:backend": "npm run build --workspace=packages/backend",
+    "lint": "npm run lint --workspaces",
+    "type-check": "npm run type-check --workspaces",
+    "backend:seed": "npm run seed --workspace=packages/backend"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=9.0.0"
+  }
+}
