@@ -11,12 +11,17 @@ export default defineConfig({
     },
   },
   server: {
-    port: 3000,
+    port: 5173, // Updated to match the standard Vite port
     proxy: {
       "/api": {
         target: "http://localhost:3001",
         changeOrigin: true,
       },
     },
+  },
+  // Optional: Use esbuild for production builds (faster than Rollup)
+  build: {
+    target: "esnext",
+    minify: "esbuild",
   },
 });
